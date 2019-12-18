@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import convertToHTML from 'markdown-to-html-converter'
+import Output from './components/Output'
 
 const markdownStr = '#We test MDSWAC app'
 const htmlStr = convertToHTML(markdownStr)
@@ -8,7 +9,10 @@ const htmlStr = convertToHTML(markdownStr)
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>{htmlStr}</header>
+      <header className='App-header'>
+        {htmlStr}
+        <Output />
+      </header>
     </div>
   )
 }
