@@ -10,8 +10,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {htmlStr}
-        <Output />
+        <Output importData={htmlStr} />
       </header>
     </div>
   )
