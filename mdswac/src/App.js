@@ -6,11 +6,11 @@ const markdownStr = '#We test MDSWAC app'
 const htmlStr = convertToHTML(markdownStr)
 
 function App() {
-    return (
-        <div className='App'>
-            <header className='App-header'>{htmlStr}</header>
-        </div>
-    )
+  return (
+    <div className='App'>
+      <header className='App-header'>{htmlStr}</header>
+    </div>
+  )
 }
 
 export default App
