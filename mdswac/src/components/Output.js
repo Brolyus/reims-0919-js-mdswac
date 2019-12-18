@@ -1,11 +1,14 @@
 import React from 'react'
+import './Output.css'
 
 const Output = props => {
+  console.log(props.importData)
   return (
-    <div>
-      <h3>Test</h3>
-      <p>{props.importData}</p>
-    </div>
+    <code className='import'>
+      {props.importData.split('\n').map(balise => {
+        return <p>{balise}</p>
+      })}
+    </code>
   )
 }
 
