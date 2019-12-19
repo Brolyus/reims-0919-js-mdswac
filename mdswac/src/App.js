@@ -4,6 +4,7 @@ import Output from './components/Output'
 import Input from './components/Input.js'
 import './App.css'
 import Navbar from './components/Navbar.js'
+import CounterBar from './components/CounterBar.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class App extends React.Component {
       })
     }
   }
-
+ 
+  
   handleChange(event) {
     this.setState({ mdText: event.target.value })
   }
@@ -41,6 +43,8 @@ class App extends React.Component {
             />
             <Output renderedText={this.state.renderedText} />
           </div>
+          <CounterBar
+            mdText={this.state.mdText}/>
         </header>
       </div>
     )
