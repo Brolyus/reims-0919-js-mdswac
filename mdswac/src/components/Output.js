@@ -5,13 +5,9 @@ const Output = props => {
   return (
     <code className='outputdiv'>
       <label className='label' htmlFor='mdText'>
-        Voici votre texte en html :
+        Voici votre texte en HTML :
       </label>
-      <div className='areaoutput'>
-        {props.cutRenderedText.split('\n').map(balise => {
-          return <p>{balise}</p>
-        })}
-      </div>
+      <div className='areaoutput'>{props.renderedText}</div>
     </code>
   )
 }
