@@ -22,22 +22,10 @@ class App extends React.Component {
     this.setState({ mdText: '', renderedText: '' })
   }
 
-  handleKeyDown = e => {
-    if (e.key === 'Enter') {
-      this.setState({
-        renderedText: md.render(this.state.mdText)
-      })
-    }
-  }
-
   handleChange = event => {
     this.setState({
       mdText: event.target.value,
-      renderedText: md.render(this.state.mdText),
-      cutRenderedText: this.state.renderedText.substring(
-        0,
-        this.state.renderedText.length - 5
-      )
+      renderedText: md.render(event.target.value)
     })
   }
 
