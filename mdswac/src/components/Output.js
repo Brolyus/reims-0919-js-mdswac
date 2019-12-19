@@ -8,7 +8,7 @@ const Output = props => {
         Voici votre texte en html :
       </label>
       <div className='areaoutput'>
-        {props.renderedText.split('\n').map(balise => {
+        {props.cutRenderedText.split('\n').map(balise => {
           return <p>{balise}</p>
         })}
       </div>

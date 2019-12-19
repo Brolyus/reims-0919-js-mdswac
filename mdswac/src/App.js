@@ -11,7 +11,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       mdText: '',
-      renderedText: ''
+      renderedText: '',
+      cutRenderedText:''
     }
     this.handleChange = this.handleChange.bind(this)
     }
@@ -19,7 +20,8 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({ mdText: event.target.value })
-    this.setState({ renderedText: convertToHTML(this.state.mdText) })
+    this.setState({ renderedText: convertToHTML(this.state.mdText + `\n`) })
+    this.setState({ cutRenderedText: this.state.renderedText.substring(0,this.state.renderedText.length-5)})
   }
 
   render() {
@@ -33,7 +35,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
             />
             <Middle/>
-            <Output renderedText={this.state.renderedText} />
+            <Output cutRenderedText={this.state.cutRenderedText} />
           </div>
         </header>
       </div>
