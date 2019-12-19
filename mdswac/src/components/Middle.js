@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import './middle.css'
+import Button from './Button'
+import Buttona from './Buttona'
+import Buttonb from './Buttonb'
 
 class Middle extends React.Component {
   constructor(props) {
@@ -11,20 +14,11 @@ render() {
   return(
     <div className='middlediv'>
       <div>
-        <button className="bouton" onClick={<p></p>}>Button A</button>
+        <Button/>
+        <Buttona/>
+        <Buttonb/>
       </div>
-      <div>
-        <button className="bouton" onClick={<p></p>}>Button B</button>
-      </div>
-      <div>
-        <button className="bouton" onClick={<p></p>}>Button C</button>
-      </div>
-      <div>
-        <button className="bouton" onClick={<p></p>}>Button D</button>
-      </div>
-      <div>
-        <button className="bouton" onClick={<p></p>}>Button E</button>
-      </div>
+
     </div>  
   )
 }}
