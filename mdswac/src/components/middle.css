@@ -1,0 +1,9 @@
+.middlediv{
+    width:10%;
+    height: 830px;
+    background-color:#212121;
+    color:whitesmoke;
+    display:flex;
+    flex-direction:column;
+    vertical-align: middle;
+}

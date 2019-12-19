@@ -1,6 +1,7 @@
 import React from 'react'
 import convertToHTML from 'markdown-to-html-converter'
 import Output from './components/Output'
+import Middle from './components/Middle'
 import Input from './components/Input.js'
 import './App.css'
 import Navbar from './components/Navbar.js'
@@ -38,6 +39,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
               handleKeyDown={this.handleKeyDown}
             />
+            <Middle/>
             <Output renderedText={this.state.renderedText} />
           </div>
         </header>
