@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 
 let MarkdownIt = require('markdown-it'),
-  md = new MarkdownIt()
+  md = new MarkdownIt('commonmark')
 
 class App extends React.Component {
   constructor(props) {
