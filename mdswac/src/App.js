@@ -15,11 +15,14 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }
+  handleReset = () => {
+    this.setState({ mdText: '' })
+  }
 
   handleKeyDown = e => {
     if (e.key === 'Enter') {
       this.setState({
-        renderedText: convertToHTML(this.state.mdText + '\n')
+        renderedText: convertToHTML(this.state.mdText)
       })
     }
   }
@@ -40,6 +43,7 @@ class App extends React.Component {
               handleKeyDown={this.handleKeyDown}
             />
             <Output renderedText={this.state.renderedText} />
+            <button onClick={this.handleReset}>Reset</button>
           </div>
         </header>
       </div>
