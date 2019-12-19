@@ -1,1 +1,4 @@
-
+.cahier {
+  display: flex;
+  flex-direction: row;
+}
