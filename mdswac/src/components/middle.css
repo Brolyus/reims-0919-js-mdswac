@@ -1,0 +1,22 @@
+.middlediv{
+    width:10%;
+    height: 80vh;
+    background-color:#212121;
+    color:whitesmoke;
+    display:flex;
+    flex-direction:column;
+    vertical-align: middle;
+    display:flex;
+    justify-content: space-between;
+    padding-bottom:5%;
+    padding-top:5%
+}
+
+.bouton{
+    height:80px;
+    width:80px;
+    background-image: url(https://zupimages.net/up/19/51/wxdq.jpg);
+    margin-left:18%;
+    border:none;
+}
+

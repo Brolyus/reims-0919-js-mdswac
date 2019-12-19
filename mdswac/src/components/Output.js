@@ -4,9 +4,10 @@ import './Output.css'
 const Output = props => {
   return (
     <code className='outputdiv'>
-      {props.renderedText.split('\n').map(balise => {
-        return <p>{balise}</p>
-      })}
+      <label className='label' htmlFor='mdText'>
+        Voici votre texte en HTML :
+      </label>
+      <div className='areaoutput'>{props.renderedText}</div>
     </code>
   )
 }

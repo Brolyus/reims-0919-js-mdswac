@@ -1,31 +1,32 @@
 import React from 'react'
-import convertToHTML from 'markdown-to-html-converter'
 import Output from './components/Output'
-import Input from './components/Input.js'
+import Middle from './components/Middle'
+import Input from './components/Input'
 import './App.css'
-import Navbar from './components/Navbar.js'
+import CounterBar from './components/CounterBar'
+import Navbar from './components/Navbar'
+
+let MarkdownIt = require('markdown-it'),
+  md = new MarkdownIt('commonmark')
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       mdText: '',
       renderedText: ''
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
+  }
+  handleReset = () => {
+    this.setState({ mdText: '', renderedText: '' })
   }
 
-  handleKeyDown = e => {
-    if (e.key === 'Enter') {
-      this.setState({
-        renderedText: convertToHTML(this.state.mdText + '\n')
-      })
-    }
-  }
-
-  handleChange(event) {
-    this.setState({ mdText: event.target.value })
+  handleChange = event => {
+    this.setState({
+      mdText: event.target.value,
+      renderedText: md.render(event.target.value)
+    })
   }
 
   render() {
@@ -37,10 +38,11 @@ class App extends React.Component {
             <Input
               mdText={this.state.mdText}
               handleChange={this.handleChange}
-              handleKeyDown={this.handleKeyDown}
             />
+            <Middle />
             <Output renderedText={this.state.renderedText} />
           </div>
+          <CounterBar mdText={this.state.mdText} />
         </header>
       </div>
     )
