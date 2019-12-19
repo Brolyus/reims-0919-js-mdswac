@@ -1,10 +1,10 @@
 import React from 'react'
 import convertToHTML from 'markdown-to-html-converter'
 import Output from './components/Output'
-import Input from './components/Input.js'
+import Input from './components/Input'
 import './App.css'
-import Navbar from './components/Navbar.js'
-import CounterBar from './components/CounterBar.js'
+import CounterBar from './components/CounterBar'
+import Navbar from './components/Navbar'
 
 class App extends React.Component {
   constructor(props) {
