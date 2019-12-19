@@ -1,20 +1,18 @@
 import React from 'react'
-import './App.css'
 import convertToHTML from 'markdown-to-html-converter'
-
-const markdownStr = `#We test MDSWAC app
-1 frefrrf
-2 freerf
-3 frettg
-`
-const htmlStr = convertToHTML(markdownStr)
+import Output from './components/Output'
+import Input from './components/Input.js';
+import './App.css'
 
 function App() {
-    return (
-        <div className='App'>
-            <header className='App-header'>{htmlStr}</header>
-        </div>
-    )
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <Input />
+        <Output />
+      </header>
+    </div>
+  )
 }
 
 export default App
