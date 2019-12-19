@@ -2,14 +2,7 @@ import React from 'react'
 import './Output.css'
 
 const Output = props => {
-  return (
-    <code className='outputdiv'>
-      {props.renderedText.split('\n').map(line => {
-        console.log(line)
-        return line
-      })}
-    </code>
-  )
+  return <code className='outputdiv'>{props.renderedText}</code>
 }
 
 export default Output

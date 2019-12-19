@@ -1,7 +1,9 @@
 import React from 'react'
 import Output from './components/Output'
+import Middle from './components/Middle'
 import Input from './components/Input'
 import './App.css'
+import CounterBar from './components/CounterBar'
 import Navbar from './components/Navbar'
 
 let MarkdownIt = require('markdown-it'),
@@ -29,7 +31,14 @@ class App extends React.Component {
   }
 
   handleChange = event => {
-    this.setState({ mdText: event.target.value })
+    this.setState({
+      mdText: event.target.value,
+      renderedText: md.render(this.state.mdText),
+      cutRenderedText: this.state.renderedText.substring(
+        0,
+        this.state.renderedText.length - 5
+      )
+    })
   }
 
   render() {
@@ -41,11 +50,11 @@ class App extends React.Component {
             <Input
               mdText={this.state.mdText}
               handleChange={this.handleChange}
-              handleKeyDown={this.handleKeyDown}
             />
+            <Middle />
             <Output renderedText={this.state.renderedText} />
-            <button onClick={this.handleReset}>Reset</button>
           </div>
+          <CounterBar mdText={this.state.mdText} />
         </header>
       </div>
     )
