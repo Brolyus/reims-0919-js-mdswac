@@ -1,6 +1,7 @@
 import React from 'react'
 import convertToHTML from 'markdown-to-html-converter'
 import Output from './components/Output'
+import Middle from './components/Middle'
 import Input from './components/Input'
 import './App.css'
 import CounterBar from './components/CounterBar'
@@ -11,23 +12,17 @@ class App extends React.Component {
     super(props)
     this.state = {
       mdText: '',
-      renderedText: ''
+      renderedText: '',
+      cutRenderedText:''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-  }
-
-  handleKeyDown = e => {
-    if (e.key === 'Enter') {
-      this.setState({
-        renderedText: convertToHTML(this.state.mdText + '\n')
-      })
     }
-  }
- 
-  
+
+
   handleChange(event) {
     this.setState({ mdText: event.target.value })
+    this.setState({ renderedText: convertToHTML(this.state.mdText + `\n`) })
+    this.setState({ cutRenderedText: this.state.renderedText.substring(0,this.state.renderedText.length-5)})
   }
 
   render() {
@@ -39,9 +34,9 @@ class App extends React.Component {
             <Input
               mdText={this.state.mdText}
               handleChange={this.handleChange}
-              handleKeyDown={this.handleKeyDown}
             />
-            <Output renderedText={this.state.renderedText} />
+            <Middle/>
+            <Output cutRenderedText={this.state.cutRenderedText} />
           </div>
           <CounterBar mdText={this.state.mdText}/>
         </header>
