@@ -18,8 +18,9 @@ class App extends React.Component {
 
   handleKeyDown = e => {
     if (e.key === 'Enter') {
-      console.log('yo')
-      this.setState({ renderedText: convertToHTML(this.state.mdText) })
+      this.setState({
+        renderedText: convertToHTML(this.state.mdText + '\n')
+      })
     }
   }
 
