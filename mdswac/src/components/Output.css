@@ -1,3 +1,24 @@
-.import {
-  font-size: 1em;
+.outputdiv {
+  width: 45%;
+  height: 830px;
+  background-image: url(https://zupimages.net/up/19/51/tirw.jpg);
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
 }
+
+/* .area{
+  height:85%;
+  vertical-align: middle;
+  width:90%;
+  margin-left:3%;
+  text-align: start;
+  background-color:#3C3D3D;
+  color:white;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+  font-size:1.5em;
+  border-radius: 15px;
+  border:2px solid #407466;
+} */

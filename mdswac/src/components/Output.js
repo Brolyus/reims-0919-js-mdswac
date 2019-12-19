@@ -3,7 +3,7 @@ import './Output.css'
 
 const Output = props => {
   return (
-    <code className='import'>
+    <code className='outputdiv'>
       {props.renderedText.split('\n').map(balise => {
         return <p>{balise}</p>
       })}

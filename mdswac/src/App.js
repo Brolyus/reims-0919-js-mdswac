@@ -32,12 +32,14 @@ class App extends React.Component {
       <div className='App'>
         <header className='App-header'>
           <Navbar />
-          <Input
-            mdText={this.state.mdText}
-            handleChange={this.handleChange}
-            handleKeyDown={this.handleKeyDown}
-          />
-          <Output renderedText={this.state.renderedText} />
+          <div className='cahier'>
+            <Input
+              mdText={this.state.mdText}
+              handleChange={this.handleChange}
+              handleKeyDown={this.handleKeyDown}
+            />
+            <Output renderedText={this.state.renderedText} />
+          </div>
         </header>
       </div>
     )

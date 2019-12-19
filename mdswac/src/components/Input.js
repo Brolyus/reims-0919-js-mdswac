@@ -28,7 +28,6 @@ class Input extends Component {
     const htmlStr = convertToHTML(markdownStr)
     return (
       <div className='inputdiv'>
-        <p>{htmlStr}</p>
         <label className='label' htmlFor='mdText'>
           Saisir votre texte en markdown :
         </label>
