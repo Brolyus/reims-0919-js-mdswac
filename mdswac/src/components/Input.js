@@ -6,8 +6,18 @@ import convertToHTML from 'markdown-to-html-converter';
 class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = { mdText: "" };
+    this.state = {
+       mdText: "" 
+      };
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      console.log('yo')
+      return this.handleChange
+    }
   }
 
   handleChange(event) {
@@ -27,6 +37,7 @@ class Input extends Component {
           type="text"
           value={this.state.mdText}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
         />
       </div>
     );
