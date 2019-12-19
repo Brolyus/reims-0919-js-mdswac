@@ -12,16 +12,20 @@ render() {
       onClick={<p></p>}>
         <button>Button A</button>
       </div>,
-      <div>
+      <div
+      onClick={<p></p>}>>
         <button>Button B</button>
       </div>,
-      <div>
+      <div
+      onClick={<p></p>}>>
         <button>Button C</button>
       </div>,
-      <div>
+      <div
+      onClick={<p></p>}>>
         <button>Button D</button>
       </div>,
-      <div>
+      <div
+      onClick={<p></p>}>>
         <button>Button E</button>
       </div>
   )
