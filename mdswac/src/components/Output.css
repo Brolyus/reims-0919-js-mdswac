@@ -10,23 +10,25 @@
 
 .outputdiv label {
   vertical-align: middle;
-  margin-left:3%;
-  margin-bottom:3%;
-  color:white;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  color: white;
   font-weight: 900;
-  font-size:1.5em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  }
+  font-size: 1.5em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
 
-.areaoutput{
-  height:85%;
+.areaoutput {
+  height: 85%;
   vertical-align: middle;
-  width:90%;
-  margin-left:3%;
+  width: 90%;
+  margin-left: 3%;
   text-align: start;
-  background-color:rgb(229, 236, 227);
-  color:black;
-  font-size:1.1em;
+  background-color: rgb(229, 236, 227);
+  color: black;
+  font-size: 1.1em;
   border-radius: 15px;
-  border:2px solid #407466;
-} 
+  border: 2px solid #407466;
+}
