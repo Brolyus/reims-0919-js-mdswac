@@ -2,7 +2,6 @@ import React from 'react'
 import './Output.css'
 
 const Output = props => {
-  console.log(props.renderedText)
   return (
     <code className='outputdiv'>
       {props.renderedText}

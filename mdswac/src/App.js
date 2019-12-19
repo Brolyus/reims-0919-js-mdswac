@@ -4,7 +4,7 @@ import Input from './components/Input'
 import './App.css'
 import Navbar from './components/Navbar'
 
-var MarkdownIt = require('markdown-it'),
+let MarkdownIt = require('markdown-it'),
   md = new MarkdownIt()
 
 class App extends React.Component {
@@ -15,10 +15,9 @@ class App extends React.Component {
       mdText: '',
       renderedText: ''
     }
-    this.handleChange = this.handleChange.bind(this)
   }
   handleReset = () => {
-    this.setState({ mdText: '' })
+    this.setState({ mdText: '', renderedText: '' })
   }
 
   handleKeyDown = e => {
@@ -29,12 +28,11 @@ class App extends React.Component {
     }
   }
 
-  handleChange(event) {
+  handleChange = event => {
     this.setState({ mdText: event.target.value })
   }
 
   render() {
-    console.log(md)
     return (
       <div className='App'>
         <header className='App-header'>
