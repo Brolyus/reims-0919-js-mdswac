@@ -2,7 +2,6 @@ import React from 'react'
 import './Output.css'
 
 const Output = props => {
-  console.log(props.importData)
   return (
     <code className='import'>
       {props.importData.split('\n').map(balise => {
