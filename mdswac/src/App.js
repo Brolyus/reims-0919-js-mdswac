@@ -14,18 +14,12 @@ class App extends React.Component {
       renderedText: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-  }
-
-  handleKeyDown = e => {
-    if (e.key === 'Enter') {
-      console.log('yo')
-      this.setState({ renderedText: convertToHTML(this.state.mdText) })
     }
-  }
+
 
   handleChange(event) {
     this.setState({ mdText: event.target.value })
+    this.setState({ renderedText: convertToHTML(this.state.mdText) })
   }
 
   render() {
@@ -37,7 +31,6 @@ class App extends React.Component {
             <Input
               mdText={this.state.mdText}
               handleChange={this.handleChange}
-              handleKeyDown={this.handleKeyDown}
             />
             <Middle/>
             <Output renderedText={this.state.renderedText} />
