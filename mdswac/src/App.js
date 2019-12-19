@@ -43,8 +43,7 @@ class App extends React.Component {
             />
             <Output renderedText={this.state.renderedText} />
           </div>
-          <CounterBar
-            mdText={this.state.mdText}/>
+          <CounterBar mdText={this.state.mdText}/>
         </header>
       </div>
     )
