@@ -6,6 +6,7 @@ import Input from './components/Input'
 import './App.css'
 import CounterBar from './components/CounterBar'
 import Navbar from './components/Navbar'
+import Keyword from './components/Keyword'
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
             <Output cutRenderedText={this.state.cutRenderedText} />
           </div>
           <CounterBar mdText={this.state.mdText}/>
+          <Keyword mdText={this.state.mdText}/>
         </header>
       </div>
     )
