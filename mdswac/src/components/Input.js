@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './input.css'
-import convertToHTML from 'markdown-to-html-converter'
 
 const Input = props => {
   return (

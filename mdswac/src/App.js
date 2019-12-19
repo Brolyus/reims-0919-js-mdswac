@@ -1,19 +1,21 @@
 import React from 'react'
-import convertToHTML from 'markdown-to-html-converter'
 import Output from './components/Output'
 import Input from './components/Input'
 import './App.css'
 import Navbar from './components/Navbar'
 
+var MarkdownIt = require('markdown-it'),
+  md = new MarkdownIt()
+
 class App extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       mdText: '',
       renderedText: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
   handleReset = () => {
     this.setState({ mdText: '' })
@@ -22,7 +24,7 @@ class App extends React.Component {
   handleKeyDown = e => {
     if (e.key === 'Enter') {
       this.setState({
-        renderedText: convertToHTML(this.state.mdText)
+        renderedText: md.render(this.state.mdText)
       })
     }
   }
@@ -32,6 +34,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(md)
     return (
       <div className='App'>
         <header className='App-header'>
