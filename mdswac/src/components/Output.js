@@ -4,7 +4,7 @@ import './Output.css'
 const Output = props => {
   return (
     <code className='import'>
-      {props.importData.split('\n').map(balise => {
+      {props.renderedText.split('\n').map(balise => {
         return <p>{balise}</p>
       })}
     </code>

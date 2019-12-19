@@ -1,19 +1,18 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import './input.css'
-import convertToHTML from 'markdown-to-html-converter';
-
+import convertToHTML from 'markdown-to-html-converter'
 
 class Input extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-       mdText: "" 
-      };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+      mdText: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     if (e.key === 'Enter') {
       console.log('yo')
       return this.handleChange
@@ -21,7 +20,7 @@ class Input extends Component {
   }
 
   handleChange(event) {
-    this.setState({ mdText: event.target.value});
+    this.setState({ mdText: event.target.value })
   }
 
   render() {
@@ -30,18 +29,21 @@ class Input extends Component {
     return (
       <div className='inputdiv'>
         <p>{htmlStr}</p>
-        <label className='label' htmlFor="mdText">Saisir votre texte en markdown :</label>
-        <textarea className='area'
-          id="mdText"
-          placeholder="Saisir votre texte ici"
-          type="text"
-          value={this.state.mdText}
-          onChange={this.handleChange}
-          onKeyDown={this.handleKeyDown}
+        <label className='label' htmlFor='mdText'>
+          Saisir votre texte en markdown :
+        </label>
+        <textarea
+          className='area'
+          id='mdText'
+          placeholder='Saisir votre texte ici'
+          type='text'
+          value={this.props.mdText}
+          onChange={this.props.handleChange}
+          onKeyDown={this.props.handleKeyDown}
         />
       </div>
-    );
+    )
   }
 }
 
-export default Input;
+export default Input
