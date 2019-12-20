@@ -1,8 +1,7 @@
 import React from 'react'
 import './middle.css'
 import Button from './Button'
-import Buttona from './Buttona'
-import Buttonb from './Buttonb'
+
 
 class Middle extends React.Component {
   constructor(props) {
@@ -17,8 +16,8 @@ class Middle extends React.Component {
             onClick={this.props}
             insertMyText={this.props.insertMyText}
             myRef={this.props.myRef}
-            updateState={this.updateState}
-          />
+            updateState={this.updateState}/>
+          
 
           <div className='flexButton'>
             <div className='portfolio-experiment'>
@@ -31,8 +30,6 @@ class Middle extends React.Component {
               </a>
             </div>
           </div>
-          <Buttona />
-          <Buttonb />
         </div>
       </div>
     )

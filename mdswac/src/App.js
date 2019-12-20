@@ -105,7 +105,7 @@ class App extends React.Component {
               insertMyText={this.insertMyText}
             />
             <Middle handleTitleSynthax={this.handleTitleSynthax} />
-            />
+            
             <Middle handleReset={this.handleReset} />
             <Output renderedText={this.state.renderedText} />
           </div>
