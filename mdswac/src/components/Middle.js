@@ -22,7 +22,7 @@ class Middle extends React.Component {
           <div className='flexButton'>
             <div className='portfolio-experiment'>
               <a onClick={this.props.handleReset}>
-                <span className='text'>St</span>
+                <span className='text'>Delete</span>
                 <span className='line -right'></span>
                 <span className='line -top'></span>
                 <span className='line -left'></span>
