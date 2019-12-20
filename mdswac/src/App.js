@@ -6,8 +6,11 @@ import './App.css'
 import CounterBar from './components/CounterBar'
 import Navbar from './components/Navbar'
 
-let MarkdownIt = require('markdown-it'),
-  md = require('markdown-it')('commonmark')
+let md = require('markdown-it')({
+  linkify: true,
+  typographer: true,
+  highlight: true
+})
 
 class App extends React.Component {
   constructor(props) {
