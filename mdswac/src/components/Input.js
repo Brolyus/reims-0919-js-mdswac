@@ -3,7 +3,7 @@ import './input.css'
 var MarkdownIt = require('markdown-it'),
   md = new MarkdownIt()
 
-const Input = ({ myRef, mdText, handleChange, insertMyText }) => (
+const Input = ({ myRef, mdText, handleChange, insertMyText, insertMyTextFin }) => (
   <div className='inputdiv'>
     <label className='label' htmlFor='mdText'>
       Saisir votre texte en markdown :
@@ -19,6 +19,8 @@ const Input = ({ myRef, mdText, handleChange, insertMyText }) => (
     />
     <button onClick={() => insertMyText('# ')}>H1</button>
     <button onClick={() => insertMyText('## ')}>H2</button>
+    <button onClick={() => insertMyTextFin('*')}>It</button>
+    <button onClick={() => insertMyTextFin('**')}>Bd</button>
   </div>
 )
 
