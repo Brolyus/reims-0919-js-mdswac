@@ -6,7 +6,7 @@ function Button(props) {
     <div className='flexButton'>
       <div className='portfolio-experiment'>
         <a>
-          <span className='text'>Tt</span>
+          <span className='text'>Xtra</span>
           <span className='line -right'></span>
           <span className='line -top'></span>
           <span className='line -left'></span>

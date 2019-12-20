@@ -17,10 +17,12 @@ const Input = ({ myRef, mdText, handleChange, insertMyText, insertMyTextFin }) =
       value={mdText}
       onChange={handleChange}
     />
-    <button onClick={() => insertMyText('# ')}>H1</button>
-    <button onClick={() => insertMyText('## ')}>H2</button>
-    <button onClick={() => insertMyTextFin('*')}>It</button>
-    <button onClick={() => insertMyTextFin('**')}>Bd</button>
+    <div className="cssbutton">
+      <button onClick={() => insertMyText('# ')}>H1</button>
+      <button onClick={() => insertMyText('## ')}>H2</button>
+      <button onClick={() => insertMyTextFin('*')}>It</button>
+      <button onClick={() => insertMyTextFin('**')}>Bd</button>
+    </div>
   </div>
 )
 
