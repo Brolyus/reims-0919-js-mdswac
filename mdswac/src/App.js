@@ -19,29 +19,6 @@ class App extends React.Component {
     }
   }
 
-  insertMyText = (textToInsert) => {
-    
-    let cursorPosition = this.myRef.current.selectionStart
-    console.log(cursorPosition)
-    let currentText=this.state.mdText
-
-    let textBeforeCursorPosition = currentText.substring(0, cursorPosition)
-    console.log(textBeforeCursorPosition)
-    let textAfterCursorPosition = currentText.substring(cursorPosition, currentText.length)
-    console.log(textAfterCursorPosition)
-    this.updateState(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
-
-  }
-
-  updateState = (newText) => {
-    const result = md.render(newText)
-    this.setState({
-      mdText: newText,
-      renderedText: result
-    })
-  }
-
-
   handleReset = () => {
     this.setState({ mdText: '', renderedText: '' })
   }
@@ -53,6 +30,36 @@ class App extends React.Component {
     })
   }
 
+  insertMyText = textToInsert => {
+    let currentText = this.myRef.current.innerHTML
+    let cursorPosition = this.myRef.current.selectionStart
+
+    while (cursorPosition) {
+      if (currentText[cursorPosition - 1].charCodeAt() === 10) {
+        break
+      } else {
+        cursorPosition--
+      }
+    }
+
+    let textBeforeCursorPosition = currentText.substring(0, cursorPosition)
+    let textAfterCursorPosition = currentText.substring(
+      cursorPosition,
+      currentText.length
+    )
+    this.updateState(
+      textBeforeCursorPosition + textToInsert + textAfterCursorPosition
+    )
+  }
+
+  updateState = newText => {
+    const result = md.render(newText)
+    this.setState({
+      mdText: newText,
+      renderedText: result
+    })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -60,12 +67,12 @@ class App extends React.Component {
           <Navbar />
           <div className='cahier'>
             <Input
+              myRef={this.myRef}
               mdText={this.state.mdText}
               handleChange={this.handleChange}
-            />
-            <Middle
               insertMyText={this.insertMyText}
-              myRef={this.myRef} />
+            />
+            <Middle handleTitleSynthax={this.handleTitleSynthax} />
             <Output renderedText={this.state.renderedText} />
           </div>
           <CounterBar mdText={this.state.mdText} />

@@ -13,10 +13,13 @@ class Middle extends React.Component {
     return (
       <div className='middlediv'>
         <div>
-          <Button  onClick = { () => this.props.insertMyText('# ')       
-           }
-      />
-              
+          <Button
+            onClick={this.props}
+            insertMyText={this.props.insertMyText}
+            myRef={this.props.myRef}
+            updateState={this.updateState}
+          />
+
           <Buttona />
           <Buttonb />
         </div>

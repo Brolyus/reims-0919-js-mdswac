@@ -1,30 +1,25 @@
 import React from 'react'
 import './input.css'
+var MarkdownIt = require('markdown-it'),
+  md = new MarkdownIt()
 
-class Input extends React.Component {
-  constructor(props) {
-    super(props)
-   }
-
-render () {
-  return (
-    <div className='inputdiv'>
-      <label className='label' htmlFor='mdText'>
-        Saisir votre texte en markdown :
-      </label>
-      <textarea
-        className='area'
-        id='mdText'
-        placeholder='Saisir votre texte ici'
-        type='text'
-        ref={this.props.myRef}
-        value={this.props.mdText}
-        onChange={this.props.handleChange}
-        onKeyDown={this.props.handleKeyDown}
-      />
-      
-    </div>
-  )
-}}
+const Input = ({ myRef, mdText, handleChange, insertMyText }) => (
+  <div className='inputdiv'>
+    <label className='label' htmlFor='mdText'>
+      Saisir votre texte en markdown :
+    </label>
+    <textarea
+      className='area'
+      id='mdText'
+      placeholder='Saisir votre texte ici'
+      type='text'
+      ref={myRef}
+      value={mdText}
+      onChange={handleChange}
+    />
+    <button onClick={() => insertMyText('# ')}>H1</button>
+    <button onClick={() => insertMyText('## ')}>H2</button>
+  </div>
+)
 
 export default Input
