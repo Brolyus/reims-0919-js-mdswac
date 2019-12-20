@@ -5,9 +5,10 @@ import Input from './components/Input'
 import './App.css'
 import CounterBar from './components/CounterBar'
 import Navbar from './components/Navbar'
+import Keyword from './components/Keyword'
 
-let MarkdownIt = require('markdown-it'),
-  md = new MarkdownIt('commonmark')
+var MarkdownIt = require('markdown-it'),
+  md = new MarkdownIt()
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class App extends React.Component {
     this.myRef = React.createRef()
     this.state = {
       mdText: '',
-      renderedText: ''
+      renderedText: '',
+      mostUsedWord: ''
+
     }
   }
 
@@ -43,7 +46,7 @@ class App extends React.Component {
 
 
   handleReset = () => {
-    this.setState({ mdText: '', renderedText: '' })
+    this.setState({ mdText: '***Tu fais quoi cet après-midi ? Tu viens à la démo ? ***', renderedText: "NON, je peux pas ! j'ai Star Wars ! " , mostUsedWord :"Star Wars !!!"})
   }
 
   handleChange = event => {
@@ -51,6 +54,34 @@ class App extends React.Component {
       mdText: event.target.value,
       renderedText: md.render(event.target.value)
     })
+    this.handleKeyword()
+  }
+
+  handleKeyword = () => {
+    let countWord = []
+    this.state.mdText.replace('\n', ' ').split(" ").forEach(word => {
+      if (countWord.filter(test => test[0] === word).length === 0) {
+        const result = [word, 1]
+        countWord = [...countWord, result]
+      } else {
+        countWord.forEach(test => {
+          if (test[0] === word) {
+            test[1] += 1
+          }
+        })
+      }
+    })   
+    
+    let final = countWord
+      .sort((number1, number2) => {
+          if (number1[1] === number2[1])
+            return number1[0] > number2[0] ? 1 : -1;
+          else
+            return number1[1] - number2[1];  
+          })
+      .map((number) => number[0])
+    final.reverse()
+    this.setState({mostUsedWord: final[0]})
   }
 
   render() {
@@ -63,12 +94,11 @@ class App extends React.Component {
               mdText={this.state.mdText}
               handleChange={this.handleChange}
             />
-            <Middle
-              insertMyText={this.insertMyText}
-              myRef={this.myRef} />
+            <Middle handleReset={this.handleReset}/>
             <Output renderedText={this.state.renderedText} />
           </div>
-          <CounterBar mdText={this.state.mdText} />
+          <CounterBar mdText={this.state.mdText} handleKeyword={this.handleKeyword} mostUsedWord={this.state.mostUsedWord}/>
+          <Keyword mdText={this.state.mdText}/>
         </header>
       </div>
     )
