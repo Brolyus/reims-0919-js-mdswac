@@ -22,7 +22,7 @@ class App extends React.Component {
     }
   }
   handleReset = () => {
-    this.setState({ mdText: '', renderedText: '' })
+    this.setState({ mdText: '***Tu fais quoi cet après-midi ? Tu viens à la démo ? ***', renderedText: "NON, je peux pas ! j'ai Star Wars ! " , mostUsedWord :"Star Wars !!!"})
   }
 
   handleChange = event => {
@@ -47,7 +47,7 @@ class App extends React.Component {
         })
       }
     })   
-    console.log(countWord)
+    
     let final = countWord
       .sort((number1, number2) => {
           if (number1[1] === number2[1])
@@ -70,7 +70,7 @@ class App extends React.Component {
               mdText={this.state.mdText}
               handleChange={this.handleChange}
             />
-            <Middle />
+            <Middle handleReset={this.handleReset}/>
             <Output renderedText={this.state.renderedText} />
           </div>
           <CounterBar mdText={this.state.mdText} handleKeyword={this.handleKeyword} mostUsedWord={this.state.mostUsedWord}/>
