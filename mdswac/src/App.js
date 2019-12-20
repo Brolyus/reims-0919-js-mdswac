@@ -16,7 +16,9 @@ class App extends React.Component {
 
     this.state = {
       mdText: '',
-      renderedText: ''
+      renderedText: '',
+      mostUsedWord: ''
+
     }
   }
   handleReset = () => {
@@ -28,6 +30,34 @@ class App extends React.Component {
       mdText: event.target.value,
       renderedText: md.render(event.target.value)
     })
+    this.handleKeyword()
+  }
+
+  handleKeyword = () => {
+    let countWord = []
+    this.state.mdText.replace('\n', ' ').split(" ").forEach(word => {
+      if (countWord.filter(test => test[0] === word).length === 0) {
+        const result = [word, 1]
+        countWord = [...countWord, result]
+      } else {
+        countWord.forEach(test => {
+          if (test[0] === word) {
+            test[1] += 1
+          }
+        })
+      }
+    })   
+    console.log(countWord)
+    let final = countWord
+      .sort((number1, number2) => {
+          if (number1[1] === number2[1])
+            return number1[0] > number2[0] ? 1 : -1;
+          else
+            return number1[1] - number2[1];  
+          })
+      .map((number) => number[0])
+    final.reverse()
+    this.setState({mostUsedWord: final[0]})
   }
 
   render() {
@@ -43,7 +73,7 @@ class App extends React.Component {
             <Middle />
             <Output renderedText={this.state.renderedText} />
           </div>
-          <CounterBar mdText={this.state.mdText}/>
+          <CounterBar mdText={this.state.mdText} handleKeyword={this.handleKeyword} mostUsedWord={this.state.mostUsedWord}/>
           <Keyword mdText={this.state.mdText}/>
         </header>
       </div>
