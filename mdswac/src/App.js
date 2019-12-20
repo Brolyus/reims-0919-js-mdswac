@@ -47,6 +47,27 @@ class App extends React.Component {
       textBeforeCursorPosition + textToInsert + textAfterCursorPosition
     )
   }
+
+  insertMyTextFin = textToInsert => {
+    let currentText = this.myRef.current.innerHTML
+    let cursorPosition = this.myRef.current.selectionStart
+    while (cursorPosition) {
+      if (currentText[cursorPosition - 1].charCodeAt() === 10) {
+        break
+      } else {
+        cursorPosition--
+      }
+    }
+    let textBeforeCursorPosition = currentText.substring(0, cursorPosition)
+    let textAfterCursorPosition = currentText.substring(
+      cursorPosition,
+      currentText.length
+    )
+    this.updateState(
+      textBeforeCursorPosition + textToInsert + textAfterCursorPosition + textToInsert
+    )
+  }
+
   handleReset = () => {
     this.setState({
       mdText: '***Tu fais quoi cet après-midi ? Tu viens à la démo ? ***',
@@ -103,6 +124,7 @@ class App extends React.Component {
               mdText={this.state.mdText}
               handleChange={this.handleChange}
               insertMyText={this.insertMyText}
+              insertMyTextFin={this.insertMyTextFin}
             />
             <Middle handleTitleSynthax={this.handleTitleSynthax} />
             />
