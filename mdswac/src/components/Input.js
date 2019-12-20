@@ -1,7 +1,12 @@
 import React from 'react'
 import './input.css'
 
-const Input = props => {
+class Input extends React.Component {
+  constructor(props) {
+    super(props)
+   }
+
+render () {
   return (
     <div className='inputdiv'>
       <label className='label' htmlFor='mdText'>
@@ -12,12 +17,14 @@ const Input = props => {
         id='mdText'
         placeholder='Saisir votre texte ici'
         type='text'
-        value={props.mdText}
-        onChange={props.handleChange}
-        onKeyDown={props.handleKeyDown}
+        ref={this.props.myRef}
+        value={this.props.mdText}
+        onChange={this.props.handleChange}
+        onKeyDown={this.props.handleKeyDown}
       />
+      
     </div>
   )
-}
+}}
 
 export default Input

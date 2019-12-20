@@ -13,7 +13,7 @@ var MarkdownIt = require('markdown-it'),
 class App extends React.Component {
   constructor(props) {
     super(props)
-
+    this.myRef = React.createRef()
     this.state = {
       mdText: '',
       renderedText: '',
@@ -21,6 +21,30 @@ class App extends React.Component {
 
     }
   }
+
+  insertMyText = (textToInsert) => {
+    
+    let cursorPosition = this.myRef.current.selectionStart
+    console.log(cursorPosition)
+    let currentText=this.state.mdText
+
+    let textBeforeCursorPosition = currentText.substring(0, cursorPosition)
+    console.log(textBeforeCursorPosition)
+    let textAfterCursorPosition = currentText.substring(cursorPosition, currentText.length)
+    console.log(textAfterCursorPosition)
+    this.updateState(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
+
+  }
+
+  updateState = (newText) => {
+    const result = md.render(newText)
+    this.setState({
+      mdText: newText,
+      renderedText: result
+    })
+  }
+
+
   handleReset = () => {
     this.setState({ mdText: '***Tu fais quoi cet après-midi ? Tu viens à la démo ? ***', renderedText: "NON, je peux pas ! j'ai Star Wars ! " , mostUsedWord :"Star Wars !!!"})
   }
