@@ -31,4 +31,5 @@
   font-size: 1.1em;
   border-radius: 15px;
   border: 2px solid #407466;
+  overflow: scroll;
 }
