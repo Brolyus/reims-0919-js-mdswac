@@ -33,3 +33,12 @@
   border: 2px solid #407466;
   overflow: auto;
 }
+.outputdiv button{
+  width: 70px;
+  margin-left: 43%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: bold;
+  
+}

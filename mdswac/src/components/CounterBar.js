@@ -11,6 +11,7 @@ const CounterBar = props => {
           return true
         }
       }).length} </p>
+      <p>Mot le plus utilisé: {props.mostUsedWord}</p>
     </div>
   )
 }

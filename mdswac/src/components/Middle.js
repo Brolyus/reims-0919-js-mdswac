@@ -20,6 +20,17 @@ class Middle extends React.Component {
             updateState={this.updateState}
           />
 
+          <div className='flexButton'>
+            <div className='portfolio-experiment'>
+              <a onClick={this.props.handleReset}>
+                <span className='text'>St</span>
+                <span className='line -right'></span>
+                <span className='line -top'></span>
+                <span className='line -left'></span>
+                <span className='line -bottom'></span>
+              </a>
+            </div>
+          </div>
           <Buttona />
           <Buttonb />
         </div>
