@@ -12,12 +12,36 @@ var MarkdownIt = require('markdown-it'),
 class App extends React.Component {
   constructor(props) {
     super(props)
-
+    this.myRef = React.createRef()
     this.state = {
       mdText: '',
       renderedText: ''
     }
   }
+
+  insertMyText = (textToInsert) => {
+    
+    let cursorPosition = this.myRef.current.selectionStart
+    console.log(cursorPosition)
+    let currentText=this.state.mdText
+
+    let textBeforeCursorPosition = currentText.substring(0, cursorPosition)
+    console.log(textBeforeCursorPosition)
+    let textAfterCursorPosition = currentText.substring(cursorPosition, currentText.length)
+    console.log(textAfterCursorPosition)
+    this.updateState(textBeforeCursorPosition + textToInsert + textAfterCursorPosition)
+
+  }
+
+  updateState = (newText) => {
+    const result = md.render(newText)
+    this.setState({
+      mdText: newText,
+      renderedText: result
+    })
+  }
+
+
   handleReset = () => {
     this.setState({ mdText: '', renderedText: '' })
   }
@@ -39,7 +63,9 @@ class App extends React.Component {
               mdText={this.state.mdText}
               handleChange={this.handleChange}
             />
-            <Middle />
+            <Middle
+              insertMyText={this.insertMyText}
+              myRef={this.myRef} />
             <Output renderedText={this.state.renderedText} />
           </div>
           <CounterBar mdText={this.state.mdText} />
