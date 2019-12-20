@@ -7,8 +7,8 @@ import CounterBar from './components/CounterBar'
 import Navbar from './components/Navbar'
 import Keyword from './components/Keyword'
 
-let MarkdownIt = require('markdown-it'),
-  md = new MarkdownIt('commonmark')
+var MarkdownIt = require('markdown-it'),
+  md = new MarkdownIt()
 
 class App extends React.Component {
   constructor(props) {
